@@ -55,3 +55,33 @@ OUstat = function(from, to, mu, theta, sigma, by = ((to - from)/(length.out - 1)
              sd = sigma / sqrt( 2 * theta))
   return(OU(from, to, mu, theta, sigma, x0, by = ((to - from)/(length.out - 1)), length.out = NULL))
 }
+
+BM = function(x, y0 = 0){
+  #'
+  #'@title simulate Brownian motion
+  #'
+  #'@param x: numeric vector, strictly increasing entries
+  #'@param: y0 numeric
+  #'
+  
+  return(list(x = x,
+              y = cumsum(c(y0, rnorm(n = length(x) - 1, mean = 0, sd = sqrt(diff(x)))))))
+  
+}
+
+BD = function(x, sigma = 1, mu = 0, y0 = 0){
+  #'
+  #'@title simulate Brownian drift
+  #'
+  #'@param x: numeric vector, strictly increasing entries
+  #'@param: sigma: numeric
+  #'@param: mu: numeric
+  #'@param: y0 numeric
+  #'
+  BM_path = BM(x, y0 = 0)$y
+  return(list(x = x,
+              y = sigma * BM_path + my * x + y0))
+  
+}
+
+
