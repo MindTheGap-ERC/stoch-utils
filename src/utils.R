@@ -84,4 +84,16 @@ BD = function(x, sigma = 1, mu = 0, y0 = 0){
   
 }
 
-
+CRPPP = function(from, to, rate){
+  #' 
+  #' @title Simulate constant rate (CR) poisson point process (PPP)
+  #' 
+  #' @param from: numeric
+  #' @param to: numberi
+  #' @param rate: rate of the PPP
+  #' 
+  #' @returns numeric vector of length >= 0. points of the PPP
+  
+  no_of_points = rpois(n = 1, lambda =  rate * (to - from))
+  return(runif(n = no_of_points, min = from, max = to))
+}
