@@ -1,4 +1,5 @@
 # stoch-utils
+
 Utility functions for probability theory
 
 ## Authors
@@ -10,6 +11,7 @@ Web page: [uu.nl/staff/NHohmann](uu.nl/staff/NHohmann)
 Orcid: [0000-0003-1559-1838](https://orcid.org/0000-0003-1559-1838)
 
 ## License
+
 Apache 2.0, see LICENSE file for details
 
 ## Funding
