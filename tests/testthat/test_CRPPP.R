@@ -1,6 +1,6 @@
-source("src/CRPPP.R")
-
-require(testthat)
+source("./R/CRPPP.R") #why is the package complainign about this?
+# test_dir(path = "tests/testthat/")
+#require(testthat)
 
 test_that("Distance between points is exponentially distributed",{
   pval_KS_compared_to_exp = function(from, to, rate){
