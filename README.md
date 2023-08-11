@@ -2,6 +2,23 @@
 
 Utility functions for probability theory
 
+## Description
+
+This repo contains utility functions for stochastic simulations in R. Currently implemented are
+
+* Wiener process
+* Brownian drift
+* Ornstein-Uhlenbeck
+* Constant rate Poisson point process
+
+## Future Work
+Methods that will be implemented in the future:
+* Drawing samples from distributions based on their pdfs (using rejection sampling)
+* Varying rate Poisson point processes
+* Thinning of point processes
+* Basic noise models (all colors)
+* Subordinators
+
 ## Authors
 
 __Niklas Hohmann__  
