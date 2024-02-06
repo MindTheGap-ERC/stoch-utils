@@ -2,29 +2,29 @@ OU = function(from, to, mu, theta, sigma, y0 = "stationary", by = ((to - from)/(
   #'
   #'@title Simulate Ornstein-Uhlenbeck (OU) process
   #'
-  #'@param from: numeric
-  #'@param to: numeric
-  #'@param mu: numeric, long term mean
-  #'@param theta: numeric, mean reversion speed
-  #'@param sigma: numeric >= 0, strength of randomness
-  #'@param y0: either string "stationary"or a finite numberic value. If "stationary"
+  #'@param from numeric
+  #'@param to numeric
+  #'@param mu numeric, long term mean
+  #'@param theta numeric, mean reversion speed
+  #'@param sigma numeric >= 0, strength of randomness
+  #'@param y0 either string "stationary"or a finite numberic value. If "stationary"
   #' the OU will start in the stationary distribution, else y0 is the initial value (value of the OU at from)
-  #'@param by: numeric
-  #'@param length.out: int
+  #'@param by numeric
+  #'@param length.out int
   #'
   #'@returns a list with components x and y. x contains where the OU is evaluated, y the values of the OU process
   #'
-  #'@details simulation via EUler-Maruyama method, see 
+  #'@details simulation via EUler-Maruyama method, see
   #' https://en.wikipedia.org/w/index.php?title=Euler%E2%80%93Maruyama_method&oldid=1135099937
-  
-  
+
+
   x = seq(from, to, by)
-  
+
   if (y0 == "stationary"){
-    y0 = rnorm(1, mean = mu, sd = sigma / sqrt(2 * theta))
+    y0 = stats::rnorm(1, mean = mu, sd = sigma / sqrt(2 * theta))
   }
-  
-  noiseIncrements <- rnorm(
+
+  noiseIncrements <- stats::rnorm(
     n = length(x) - 1,
     mean = 0,
     sd = sqrt(by)
@@ -37,5 +37,5 @@ OU = function(from, to, mu, theta, sigma, y0 = "stationary", by = ((to - from)/(
   }
   return(list(x = x,
               y = ouval))
-  
+
 }
